@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <h:head>
+        <title>Cesar Challenger - Filipe Bevilaqua</title>
+    </h:head>
+    <h:body>
+        <header>
+            <div class="collapse bg-dark" id="navbarHeader">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-7 py-4">
+                            <h4 class="text-white">About</h4>
+                            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                        </div>
+                        <div class="col-sm-4 offset-md-1 py-4">
+                            <h4 class="text-white">Contact</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                                <li><a href="#" class="text-white">Email me</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container d-flex justify-content-between">
+                    <a href="#" class="navbar-brand d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        <strong>Filipe Bevilaqua</strong>
+                    </a>
+
+                </div>
+            </div>
+        </header>
+
+        <main role="main">
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <h1>Challenger Cesar</h1>
+                    <p class="lead text-muted">
+                        Em primeiro lugar, gostaria de agrader a vocês pela oportunidade que me foi dada.
+                    </p>
+                    <p class="lead text-muted">
+                        Conforme solicitado segue o desafio proposto durante a entrevista pra a vaga de desenvolvedor
+                        web junior. No meu entendimento, achei que deveria fazer a aplicação consumindo a API, porem consigo facilmente consumir tambem
+                        de um Bando de Dados ou de um arquivo em outro formto(XML, CSV, Json, TXT, Etc). Pela quantidade de dados, 
+                        a demora um tempo considerado para carregar as informações, limitei a busca da API em 1000 itens.
+                    </p>
+                </div>
+            </section>
+            <div class="album py-5">
+
+                <div class="container">
+                    <h2 align="center" style="padding-bottom: 30px">Retorno dos dados</h2>
+                    <div class="row">
+
+                        <div class="col-md-6"> 
+                            <p:panel id="mes" header="Grafico por Mês"  style="width:550px;height:600px;"  >
+                                <p:chart type="bar" model="#{expenseBean.barModel}"/>
+                            </p:panel>
+
+                        </div>
+                        <div class="col-md-6">
+                            <p:panel id="mes" header="Tabela por Mês"  style="width:550px;height:600px;" >
+                                <p:dataTable var="var" value="#{expenseBean.listaMes}"  >
+                                    <p:column headerText="Mês">
+                                        <h:outputText value="#{var.mes}" />
+                                    </p:column>
+                                    <p:column headerText="Valor">
+                                        <h:outputText value="#{var.valor}" >
+                                            <f:convertNumber type="currency"  />
+                                        </h:outputText>
+
+                                    </p:column>
+                                </p:dataTable>
+                            </p:panel>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p:panel id="catgra" header="Grafico por Categoria"  style="width:550px;height:600px;" >
+                               <p:chart type="bar" model="#{expenseBean.barModelCategory}" style="height:300px"/>
+                            </p:panel>
+                        </div>
+                        <div class="col-md-6">
+                            <p:panel id="cattab" header="Tabela por Categoria"  style="width:550px;height:600px;"  >
+                                <p:dataTable var="var" value="#{expenseBean.listaCat}"  >
+                                    <p:column headerText="Categoria">
+                                        <h:outputText value="#{var.category}" />
+                                    </p:column>
+                                    <p:column headerText="Valor">
+                                        <h:outputText value="#{var.valor}" >
+                                            <f:convertNumber type="currency"  />
+                                        </h:outputText>
+
+                                    </p:column>
+                                </p:dataTable>
+                            </p:panel>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p:panel id="origra" header="Grafico por Origem"  style="width:550px;height:600px;" >
+                              <p:chart type="bar" model="#{expenseBean.barModelSouce}" style="height:300px"/>
+                            </p:panel>
+                        </div>
+                        <div class="col-md-6">
+                            <p:panel id="oritab" header="Tabela por Origem"  style="width:550px;height:600px;"  >
+                                <p:dataTable var="var" value="#{expenseBean.listaSource}"  >
+                                    <p:column headerText="Origem">
+                                        <h:outputText value="#{var.source}" />
+                                    </p:column>
+                                    <p:column headerText="Valor">
+                                        <h:outputText value="#{var.valor}" >
+                                            <f:convertNumber type="currency"  />
+                                        </h:outputText>
+
+                                    </p:column>
+                                </p:dataTable>
+                            </p:panel>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </h:body>
+</html>
+
