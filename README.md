@@ -8,7 +8,9 @@ Limitei a consulta da API em 1000 registros para não demorar tanto, já que a A
 Aspectos Tecnicos:
 
 Linguagem: JAVA + JSF + Primefaces
+
 Frontend: Bootstrap + Jquery + CSS
+
 CloudServer: Cloud Foundry Foundation(PIVOTAL)
 
 Link para acessar o aplicativo: https://dashprefeitura.cfapps.io/
